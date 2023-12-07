@@ -1,0 +1,18 @@
+{% extends "app/base.html" %}
+
+{% block content %}
+    <div class="d-flex bd-highlight mb-3">
+      <div class="p-2 bd-highlight"><h2 class="m-3">Список приемок:</h2></div>
+
+      <div class="ms-auto p-2 bd-highlight mt-4">
+          <form action={% url "add_supply" %}>
+            <button class="btn btn-secondary">
+                {{ button_name }}
+            </button>
+          </form>
+      </div>
+    </div>
+
+    {% include "app/tables.html" %}
+
+{% endblock %}

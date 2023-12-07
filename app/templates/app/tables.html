@@ -1,0 +1,22 @@
+{% load poll_extras %}
+
+<table class="table">
+  <thead>
+    <tr>
+        {% for key in keys_list %}
+            <th scope="col">{{ key }}</th>
+        {% endfor %}
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for item in data_list %}
+    <tr>
+        {% for key in keys_list %}
+            {% parse_data key item as item_value %}
+            <td>{{ item_value }}</td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
