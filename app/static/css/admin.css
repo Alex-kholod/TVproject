@@ -1,11 +1,19 @@
-#header, .module caption, div.breadcrumbs {
+#header, .module caption {
+    background: #6c757d;
+    text-align: center;
+}
+div.breadcrumbs {
     background: #6c757d;
 }
-
 #branding h1 a:link, #branding h1 a:visited {
     color: #ffff;
+
 }
 
 a:link, a:visited {
-    color: blue;
+    color: #0B61A4;
 }
+
+/*thead th a:link, thead th a:visited {*/
+/*    color: #A69C00;*/
+/*}*/

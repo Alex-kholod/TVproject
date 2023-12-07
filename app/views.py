@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
 from .form import AddSupplyForm, AddShipmentForm
 from . import services
+from .models import TV
+from django.db.models import Q
+from django.views.generic import ListView
 
 
-# Create your views here.
 def models_tv(request):
     data = services.get_models_tv()
     return render(request=request, template_name="app/models_tv.html", context=data)
@@ -52,3 +54,15 @@ def add_shipment_form(request):
     else:
         form = AddShipmentForm()
     return render(request=request, template_name="app/form_add_shipment.html", context={'form': form})
+
+
+class SearchResultsView(ListView):
+    model = TV
+    template_name = 'app/search_results.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        object_list = TV.objects.filter(
+            Q(tv_model__icontains=query) | Q(price__icontains=query)
+        )
+        return object_list
