@@ -1,11 +1,24 @@
 {% extends "app/base.html" %}
 
 {% block content %}
-  <ul>
+
+<table class="table mt-3">
+    <thead>
+    <tr>
+        <th scope="col">Модель</th>
+        <th scope="col">Цена</th>
+    </tr>
+    </thead>
     {% for tv in object_list %}
-      <li>
-        {{ tv.tv_model }}, {{ tv.price }}
-      </li>
+    <tr>
+        <td>
+            {{ tv.tv_model }}
+        </td>
+        <td>
+            {{ tv.price }}
+        </td>
+    </tr>
     {% endfor %}
-  </ul>
+</table>
+
 {% endblock %}
