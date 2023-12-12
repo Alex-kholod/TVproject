@@ -61,8 +61,9 @@ class SearchResultsView(ListView):
     template_name = 'app/search_results.html'
 
     def get_queryset(self):
-        query = self.request.GET.get('q')
+        query_model = self.request.GET.get('q').strip()
+        query_price = self.request.GET.get('q2').strip()
         object_list = TV.objects.filter(
-            Q(tv_model__icontains=query) | Q(price__icontains=query)
+            Q(tv_model__icontains=query_model) & Q(price__icontains=query_price)
         )
         return object_list

@@ -1,6 +1,11 @@
 {% extends "app/base.html" %}
 
 {% block content %}
+<form class="d-flex mt-3" action="{% url 'search_results' %}" method="get">
+        <input class="form-control me-2" name="q" type="text" placeholder="Поиск по моделям" aria-label="Search">
+        <input class="form-control me-2" name="q2" type="text" placeholder="Поиск по цене" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+</form>
 
 <table class="table mt-3">
     <thead>
